@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/SelectionSort/SortTestHelper.h
+iostream
+-
+ctime
+-
+cassert
+-
+
+/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/SelectionSort/Student.h
+iostream
+-
+string
+-
+
+/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/SelectionSort/main.cpp
+iostream
+-
+Student.h
+/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/SelectionSort/Student.h
+SortTestHelper.h
+/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/SelectionSort/SortTestHelper.h
+
