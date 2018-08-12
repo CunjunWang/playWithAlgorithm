@@ -30,6 +30,25 @@ namespace SortTestHelper {
         return arr;
     }
 
+    int *generateNearlySortedArray(int n, int swapTimes) {
+
+        int *arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = i;
+        }
+
+        srand(time(NULL));
+
+        for (int i = 0; i < swapTimes; i++) {
+            int posx = rand() % n;
+            int posy = rand() % n;
+            swap(arr[posx], arr[posy]);
+        }
+
+        return arr;
+    }
+
     template<typename T>
     void printArray(T arr[], int n) {
 
@@ -62,7 +81,7 @@ namespace SortTestHelper {
         clock_t endTime = clock();
 
         // 判定数组已经排序了
-        assert( isSorted(arr, n));
+        assert(isSorted(arr, n));
 
         // 打印时钟周期个数来看算法效率
         cout << sortName << " : " << double(endTime - startTime) / CLOCKS_PER_SEC << "s" << endl;
@@ -70,9 +89,9 @@ namespace SortTestHelper {
         return;
     }
 
-    int* copyIntArray(int a[], int n) {
-        int* arr = new int[n];
-        copy(a, a+n, arr);
+    int *copyIntArray(int a[], int n) {
+        int *arr = new int[n];
+        copy(a, a + n, arr);
         return arr;
     }
 
