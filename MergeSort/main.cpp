@@ -51,14 +51,22 @@ void __merge(T arr[], int l, int mid, int r) {
 template<typename T>
 void __mergeSort(T arr[], int l, int r) {
 
-    if (l >= r) return;
+    // 第二个优化
+    // 当递归到比较小的时候 可以转用插入排序
+//    if (l >= r) return;
+    if (r - l <= 15) {
+        insertionSort(arr, l, r);
+        return;
+    }
 
     // l + r 非常大时 可能溢出
     int mid = (l + r) / 2;
     __mergeSort(arr, l, mid);
     __mergeSort(arr, mid + 1, r);
-    __merge(arr, l, mid, r);
 
+    // 第一个优化
+    if (arr[mid] > arr[mid + 1])
+        __merge(arr, l, mid, r);
 }
 
 
@@ -72,12 +80,25 @@ void mergeSort(T arr[], int n) {
 
 int main() {
 
-    int n = 500000;
+    int n = 50000;
 
     cout << "Test for Random Array, size = " << n << ", random range [0, " << n << "]" << endl;
 
-    int* arr1 = SortTestHelper::generateRandomArray(n,0,n);
-    int* arr2 = SortTestHelper::copyIntArray(arr1, n);
+    int *arr1 = SortTestHelper::generateRandomArray(n, 0, n);
+    int *arr2 = SortTestHelper::copyIntArray(arr1, n);
+
+    SortTestHelper::testSort("Insertion Sort", insertionSort, arr1, n);
+    SortTestHelper::testSort("MergeSort", mergeSort, arr2, n);
+
+    delete[] arr1;
+    delete[] arr2;
+
+    int swapTimes = 10;
+    cout << "Test for Random Nearly Ordered Array, size = " << n << "swaptime = " << swapTimes << " random range [0, "
+         << n << "]" << endl;
+
+    arr1 = SortTestHelper::generateNearlySortedArray(n, swapTimes);
+    arr2 = SortTestHelper::copyIntArray(arr1, n);
 
     SortTestHelper::testSort("Insertion Sort", insertionSort, arr1, n);
     SortTestHelper::testSort("MergeSort", mergeSort, arr2, n);
