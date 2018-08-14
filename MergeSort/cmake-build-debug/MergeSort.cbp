@@ -85,6 +85,9 @@
 		<Unit filename="/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/MergeSort/InsertionSort.h">
 			<Option target="MergeSort"/>
 		</Unit>
+		<Unit filename="/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/MergeSort/MergeSort.h">
+			<Option target="MergeSort"/>
+		</Unit>
 		<Unit filename="/Users/CunjunWang/Desktop/Algorithm/PlayWithAlgorithm/MergeSort/SortTestHelper.h">
 			<Option target="MergeSort"/>
 		</Unit>
